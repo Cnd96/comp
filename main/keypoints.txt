@@ -98,3 +98,9 @@
     }
 
     cout << s << "\n";
+
+
+12. String contain substring
+    string ss="wqee";
+
+    cout<<(ss.find("w")==string::npos);

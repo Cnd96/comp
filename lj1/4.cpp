@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <queue>
+#define mod 1000000007
 //lj1
 using namespace std;
 

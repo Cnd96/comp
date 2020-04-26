@@ -1,10 +1,8 @@
-#include "bits/stdc++.h"
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
+// https://www.codechef.com/problems/TILE
+#include<bits/stdc++.h>
 #define mod 1000000007
 #define ll long long
+using namespace std;
 ll magic[2][2];
 ll I[2][2];
 
@@ -37,31 +35,28 @@ void matEXP(ll n)
 	mul(magic,magic) , n/=2;	
   }
 }
-
 int main()
 {
-    int t;
-    cin >> t;
-    for (int i = 1; i <= t; i++)
-    {
-        ll n;
-        cin >> n;
-        magic[0][0]=0,magic[0][1]=2, magic[1][0]=1, magic[1][1]=2;
+	ll t,n;
+	cin>>t;
+	while(t--)
+	{
+        magic[0][0]=0,magic[0][1]=1, magic[1][0]=1, magic[1][1]=1;
 		I[0][0]=1,I[0][1]=0,I[1][0]=0,I[1][1]=1;
+		cin>>n;
 
         if(n==1){
-            cout<<2<<endl;
+            cout<<1<<endl;
         }
         else if (n==2)
         {
-            cout<<6<<endl;
+            cout<<2<<endl;
         }
         else 
         {
             matEXP(n-2);
-            ll resul=((I[0][1]*2)%mod+(I[1][1]*6)%mod)%mod;
+            ll resul=(I[0][1]+I[1][1]*2)%mod;
             cout<<resul<<endl;
         }
-    }
-    return 0;
+	}
 }

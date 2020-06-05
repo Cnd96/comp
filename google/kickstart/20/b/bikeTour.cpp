@@ -5,11 +5,10 @@
 #include <queue>
 using namespace std;
 #define mod 1000000007
-#define ll unsigned long long
+#define ll long long
 #define lim 26
 const double PI = acos(-1.0);
 
-bool arr[63];
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -18,21 +17,23 @@ int main()
     cin >> t;
     for (int tt = 1; tt <= t; tt++)
     {
-        ll x, y, l, r, res;
 
-        cin >> x >> y >> l >> r;
-        res = (x | y);
+        int n,res=0;
+        cin >> n;
+        int arr[n];
 
-        if (x == 0 || y == 0)
+        for (int i = 0; i < n ; i++)
         {
-            cout << 0 << "\n";
-        }
-        else
-        {
-             cout << res << "\n";
+            cin >> arr[i];
         }
 
-       
+        for (int i = 1; i < n-1; i++)
+        {
+            if(arr[i]>arr[i-1]&&arr[i]>arr[i+1])res++;
+        }
+        
+
+        cout << "Case #" << tt << ": "<<res<< "\n";
     }
     return 0;
 }

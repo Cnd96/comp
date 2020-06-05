@@ -4,47 +4,50 @@
 #include <string>
 #include <queue>
 using namespace std;
+#define mod 1000000007
+#define ll long long
+#define lim 26
+const double PI=acos(-1.0);
+
 
 int main()
 {
-    string s;
-    cin >> s;
-    int arr[s.size()], zeroCount = 0, oneCount = 0;
-    for (int i = 0; i < s.size(); i++)
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t;
+    cin >> t;
+    for (int tt = 1; tt <= t; tt++)
     {
-        arr[i] = s[i] - '0';
-        if (arr[i])
-            oneCount++;
-        else
-            zeroCount++;
-    }
-    int reZero = 0, resOne = oneCount, res , temp;
+		int res=0;
+		string s;
+		char c;
+		cin>>s;
+		int cur=2;
 
-    if (arr[0])
-    {
-        resOne--;
+		for (int i = 0; i < s.size(); i++)
+		{
+			c=s[i];
+			if(cur==2){
+				if(c=='x')cur=1;
+				else cur=0;
+			}
+			else if (cur==1)
+			{
+				if(c=='y'){
+					cur=2;
+					res++;
+				}
+			}
+			else{
+				if(c=='x'){
+					cur=2;
+					res++;
+				}
+			}
+			
+		}
+		
+        cout <<res<< "\n";
     }
-    else
-    {
-        reZero++;
-    }
-    res=resOne+reZero;
-
-    for (int i = 1; i < s.size()-1; i++)
-    {
-        if (arr[i])
-        {
-            resOne--;
-        }
-        else
-        {
-            reZero++;
-        }
-        temp = resOne + reZero;
-        res = max(res, temp);
-    }
-
-    cout << res << endl;
-
     return 0;
 }

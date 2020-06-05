@@ -3,22 +3,21 @@
 #include <vector>
 #include <string>
 #include <queue>
-#define mod 1000000007
-//lj1
 using namespace std;
+#define mod 1000000007
+#define ll long long
+#define lim 26
+const double PI=acos(-1.0);
 
 int main()
 {
-
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
     int t;
     cin >> t;
     for (int tt = 1; tt <= t; tt++)
     {
-       
 
-        cout << "Case #" << tt << ": "<< "\n";
+        cout << "Case #" << tt << ": "
+             << endl;
     }
     return 0;
 }
